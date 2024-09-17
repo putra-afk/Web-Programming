@@ -1,0 +1,16 @@
+.tulisan_warna{
+    color: blue;
+}
+
+p{
+    text-align: center;
+}
+
+.par1{
+    text-decoration: underline;
+}
+
+body {
+    padding-bottom: 20px;
+    border-bottom: 2px solid black;
+}
