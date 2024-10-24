@@ -1,0 +1,108 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensure consistent element sizing */
+}
+
+body {
+  background-image: url("hostel.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Header Navigation */
+.navbar {
+  background-color: #0288d1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; /* Ensure it stays above other content */
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+.navbar nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.navbar nav a:hover {
+  text-decoration: underline;
+}
+
+/* Header Background */
+body::before {
+  content: "";
+  display: block;
+  height: 70px;
+}
+
+/* Form Container */
+.container {
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 30px auto; /* Center horizontally */
+  margin-top: 100px; /* Ensure space under the header */
+}
+
+/* Form Labels */
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Form Inputs */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+  font-size: 1rem;
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: #81d4fa;
+  border: none;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0288d1;
+}
+
+/* Result Section */
+#result {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
