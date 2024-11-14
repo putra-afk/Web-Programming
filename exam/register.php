@@ -3,14 +3,22 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $error = "";
 
     // Validate input
-    if (!empty($username) && !empty($password)) {
+    if (empty($username) || empty($password)) {
+        $error = "Both username and password must be filled.";
+    } elseif (strlen($password) <= 5) {
+        $error = "Password must be at least 5 characters.";
+    } elseif (!preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password)) {
+        $error = "Password must contain both uppercase and lowercase letters.";
+    } elseif (!preg_match('/[a-zA-Z]/', $username)) {
+        $error = "Username must contain both uppercase and lowercase letters.";
+    } else {
         // Open the file for appending
         $file = fopen("users.txt", "a");
 
         // Save the username and password
-        // Password should be hashed for security purposes
         fwrite($file, $username . "," . password_hash($password, PASSWORD_DEFAULT) . "\n");
 
         // Close the file
@@ -19,8 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Redirect to login page after successful registration
         header("Location: login.php?success=1");
         exit();
-    } else {
-        $error = "Both fields are required.";
     }
 }
 ?>
@@ -35,7 +41,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f0f8ff;
+            background-color: #89cff0;
+            /* Baby Blue color */
+        }
+
+        .logo {
+            max-width: 150px;
+            margin: 0 auto 20px auto;
+            /* Centers the image horizontally */
+            display: block;
+            /* Needed to apply auto margins for centering */
         }
 
         .register-box {
@@ -53,8 +68,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
 
     <div class="register-box">
+        <img src="Hostel-logo.png" alt="Hostel Logo" class="logo">
         <h2 class="text-center">Register</h2>
 
+        <!-- Display error message if there's any -->
         <?php if (!empty($error)): ?>
             <div class="alert alert-danger"><?php echo $error; ?></div>
         <?php endif; ?>

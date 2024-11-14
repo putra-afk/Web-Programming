@@ -13,6 +13,13 @@
         <div class="login-box">
             <img src="Hostel-logo.png" alt="Hostel Logo" class="logo">
             <h2>Login with Hostel</h2>
+
+            <?php if (isset($error)): ?>
+                <div class="error-message" style="color: red; font-weight: bold;">
+                    <?php echo $error; ?>
+                </div>
+            <?php endif; ?>
+
             <form method="post" action="login_handler.php">
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>

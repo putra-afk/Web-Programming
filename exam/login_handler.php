@@ -44,50 +44,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f0f8ff;
-        }
-
-        .login-box {
-            width: 400px;
-            margin: auto;
-            padding: 30px;
-            border: 1px solid #007BB5;
-            border-radius: 10px;
-            background-color: white;
-            margin-top: 100px;
-        }
-    </style>
+    <title>Login with Hostel</title>
+    <link rel="stylesheet" href="styleLogin.css">
 </head>
 
 <body>
+    <div class="login-container">
+        <div class="login-box">
+            <img src="Hostel-logo.png" alt="Hostel Logo" class="logo">
+            <h2>Login with Hostel</h2>
 
-    <div class="login-box">
-        <h2 class="text-center">Login</h2>
+            <?php if (isset($error)): ?>
+                <div class="error-message" style="color: red; font-weight: bold;">
+                    <?php echo $error; ?>
+                </div>
+            <?php endif; ?>
 
-        <?php if (!empty($error)): ?>
-            <div class="alert alert-danger"><?php echo $error; ?></div>
-        <?php endif; ?>
-
-        <form method="POST" action="login_handler.php">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+            <form method="post" action="login_handler.php">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="register.php">Don't have an account? Register</a>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
-        </form>
-        <div class="text-center mt-3">
-            <a href="register.php">Don't have an account? Register</a>
+            <footer>
+                <a href="#">Terms and Conditions</a> • <a href="#">Privacy Policy</a>
+            </footer>
         </div>
     </div>
-
 </body>
 
 </html>

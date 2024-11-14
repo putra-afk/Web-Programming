@@ -99,10 +99,18 @@ body::before {
   background-color: #0288d1;
 }
 
-/* Result Section */
 #result {
-  margin-top: 15px;
-  font-size: 1.2rem;
-  font-weight: bold;
+  margin-top: 20px;
+  font-size: 1em;
+  font-weight: normal;
+  color: #ffffff;
   text-align: center;
+}
+
+p {
+  margin: 5px 0;
+}
+
+strong {
+  font-weight: bold;
 }
