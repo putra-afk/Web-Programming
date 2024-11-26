@@ -1,6 +1,9 @@
 body {
   height: 100vh;
-  background-color: #89cff0; /* Baby Blue color */
+  background-image: url("newview.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;

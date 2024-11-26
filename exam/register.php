@@ -41,8 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #89cff0;
-            /* Baby Blue color */
+            background-image: url("view.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         .logo {
